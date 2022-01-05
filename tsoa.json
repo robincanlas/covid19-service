@@ -1,0 +1,19 @@
+{
+  "entryFile": "src/config/Server.ts",
+  "noImplicitAdditionalProperties": "throw-on-extras",
+  "controllerPathGlobs": [
+    "src/**/*Controller.ts"
+  ],
+  "spec": {
+    "outputDirectory": "src/build",
+    "specVersion": 3,
+    "name": "Covid19 Service",
+    "description": "Microservice that will handle all the API about the covid-19 reports",
+    "version": "1.0.0",
+    "tags": ["microservice", "portfolio", "projects"],
+    "contact": { "email": "kristofferrobincanlas@gmail.com", "name":  "Kristoffer Robin Canlas", "url": "https://kristofferrobincanlas.com" }
+  },
+  "routes": {
+    "routesDir": "src/build"
+  }
+}
