@@ -87,4 +87,15 @@ export class DiseaseShService {
       return null;
     });
   }
+
+  public async getCountries(): Promise<Covid.GetCountry[]> {
+    return await axios.get(`${DiseaseShService.host}countries`)
+    .then(response => {
+      return response.data;
+    })
+    .catch(error => {
+      console.warn(error);
+      return null;
+    });
+  }
 }

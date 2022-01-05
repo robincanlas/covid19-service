@@ -16,6 +16,30 @@ import { BaseController } from './';
 export class Covid19Controller extends BaseController {
   private diseaseShService: DiseaseShService = new DiseaseShService();
 
+  /**
+   * Get historical data based on number of days and country name
+   * @param {string} country Country name
+   * @param {string} lastdays Number of days to return. Use 'all' for the full data set (e.g. 15, all, 24)
+   */
+  @SuccessResponse(201, 'Success')
+  @Response(400, 'Bad Request')
+  @Response(500, 'Service Error')
+  @Get('historical/{country}/all')
+  public async getHistoricalByCountry(
+    @Path() country: string,
+    @Query() lastdays: string = '30'
+  ): Promise<Covid.GetHistoricalByCountry> {
+    return await this.diseaseShService.getHistoricalByCountry(country, lastdays);
+  }
+ 
+  @SuccessResponse(201, 'Success')
+  @Response(400, 'Bad Request')
+  @Response(500, 'Service Error')
+  @Get('countries')
+  public async getCountries(): Promise<Covid.GetCountry[]> {
+    return await this.diseaseShService.getCountries();
+  }
+
   @SuccessResponse(201, 'Success')
   @Response(400, 'Bad Request')
   @Response(500, 'Service Error')
@@ -60,22 +84,6 @@ export class Covid19Controller extends BaseController {
     @Query() lastdays: string = '30'
   ): Promise<Covid.GetHistorical> {
     return await this.diseaseShService.getHistorical(lastdays);
-  }
-
-  /**
-   * Get historical data based on number of days and country name
-   * @param {string} country Country name
-   * @param {string} lastdays Number of days to return. Use 'all' for the full data set (e.g. 15, all, 24)
-   */
-  @SuccessResponse(201, 'Success')
-  @Response(400, 'Bad Request')
-  @Response(500, 'Service Error')
-  @Get('historical/{country}/all')
-  public async getHistoricalByCountry(
-    @Path() country: string,
-    @Query() lastdays: string = '30'
-  ): Promise<Covid.GetHistoricalByCountry> {
-    return await this.diseaseShService.getHistoricalByCountry(country, lastdays);
   }
   
 }
