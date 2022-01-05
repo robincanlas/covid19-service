@@ -76,4 +76,15 @@ export class DiseaseShService {
       return null;
     });
   }
+
+  public async getHistoricalByCountry(country: string, lastdays: string): Promise<Covid.GetHistoricalByCountry> {
+    return await axios.get(`${DiseaseShService.host}historical/${country}?lastdays=${lastdays}`)
+    .then(response => {
+      return response.data;
+    })
+    .catch(error => {
+      console.warn(error);
+      return null;
+    });
+  }
 }
