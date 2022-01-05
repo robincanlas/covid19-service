@@ -43,4 +43,37 @@ export class DiseaseShService {
       flag: country.countryInfo.flag
     }));
   }
+
+  public async getCountriesWorldometersRaw(): Promise<Covid.WorldometerCountries[]> {
+    return await axios.get(`${DiseaseShService.host}countries`)
+    .then(response => {
+      return response.data;
+    })
+    .catch(error => {
+      console.warn(error);
+      return null;
+    });
+  }
+
+  public async getAll(): Promise<Covid.GetAll> {
+    return await axios.get(`${DiseaseShService.host}all`)
+    .then(response => {
+      return response.data;
+    })
+    .catch(error => {
+      console.warn(error);
+      return null;
+    });
+  }
+
+  public async getHistorical(lastdays: string): Promise<Covid.GetHistorical> {
+    return await axios.get(`${DiseaseShService.host}historical/all?lastdays=${lastdays}`)
+    .then(response => {
+      return response.data;
+    })
+    .catch(error => {
+      console.warn(error);
+      return null;
+    });
+  }
 }

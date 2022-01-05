@@ -1,4 +1,39 @@
 export namespace Covid {
+  export interface GetHistorical {
+    cases: {
+      date: number;
+    };
+    deaths: {
+      date: number;
+    };
+    recovered: {
+      date: number;
+    };
+  }
+
+  export interface GetAll {
+    updated: number;
+    cases: number;
+    todayCases: number;
+    deaths: number;
+    recovered: number;
+    todayRecovered: number;
+    active: number;
+    critical: number;
+    casesPerOneMillion: number;
+    deathsPerOneMillion: number;
+    tests: number;
+    testsPerOneMillion: number;
+    population: number;
+    oneCasePerPeople: number;
+    oneDeathPerPeople: number;
+    oneTestPerPeople: number;
+    activePerOneMillion: number;
+    recoveredPerOneMillion: number;
+    criticalPerOneMillion: number;
+    affectedCountries: number;
+  }
+
   export interface WorldometerCountries {
     updated: number;
     country: string;
