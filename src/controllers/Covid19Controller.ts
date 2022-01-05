@@ -24,7 +24,7 @@ export class Covid19Controller extends BaseController {
   @SuccessResponse(201, 'Success')
   @Response(400, 'Bad Request')
   @Response(500, 'Service Error')
-  @Get('historical/{country}/all')
+  @Get('historical/{country}')
   public async getHistoricalByCountry(
     @Path() country: string,
     @Query() lastdays: string = '30'
