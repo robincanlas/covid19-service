@@ -1,1 +1,1 @@
-export * from './PositionStackService';
+export * from './DiseaseShService';

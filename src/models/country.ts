@@ -1,22 +1,51 @@
-export namespace Country {
-  export interface Get {
-    latitude: number;
-    longitude: number;
-    type: string;
-    name: string;
-    number: number;
-    postal_code: string;
-    street: string;
-    confidence: number;
-    region: string;
-    region_code: string;
+export namespace Covid {
+  export interface WorldometerCountries {
+    updated: number;
+    country: string;
+    countryInfo: {
+      _id: number;
+      iso2: string;
+      iso3: string;
+      lat: number;
+      long: number;
+      flag: string
+    };
+    cases: number;
+    todayCases: number;
+    deaths: number;
+    todayDeaths: number;
+    recovered: number;
+    todayRecovered: number;
+    active: number;
+    critical: number;
+    casesPerOneMillion: number;
+    deathsPerOneMillion: number;
+    tests: number;
+    testsPerOneMillion: number;
+    population: number;
+    continent: number;
+    oneCasePerPeople: number;
+    oneDeathPerPeople: number;
+    oneTestPerPeople: number;
+    activePerOneMillion: number;
+    recoveredPerOneMillion: number;
+    criticalPerOneMillion: number;
+  }
+
+  export interface JhucsseCountries {
+    country: string;
     county: string;
-    locality: string;
-    administrative_area: string;    
-    neighbourhood: string;
-    country: string;       
-    country_code: string;
-    continent: string;
-    label: string;
+    updatedAt: string;
+    stats: {
+      confirmed: number;
+      deaths: number;
+      recovered: number;
+    };
+    coordinates: {
+      latitude: string;
+      longitude: string;
+    };
+    province: string;
+    flag: string;
   }
 }
